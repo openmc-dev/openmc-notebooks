@@ -1,0 +1,13 @@
+# IPython notebook checkpoints
+.ipynb_checkpoints
+
+# Jupyter notebooks
+*.xml
+*.png
+*.xls
+*.ace
+*.endf
+mgxs/
+tracks/
+fission-rates/
+plots/
