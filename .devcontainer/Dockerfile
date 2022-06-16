@@ -9,7 +9,7 @@ RUN conda install -c conda-forge mamba
 RUN mamba install -c conda-forge -y "openmc=0.13.0=dagmc*nompi*"
 
 # Jupyter lab installed to run examples
-RUN install -c conda-forge jupyterlab
+RUN mamba install -c conda-forge jupyterlab
 
 # downloads ENDF/B-VII.1 from https://openmc.org/official-data-libraries/
 RUN wget https://anl.box.com/shared/static/9igk353zpy8fn9ttvtrqgzvw1vtejoz6.xz
