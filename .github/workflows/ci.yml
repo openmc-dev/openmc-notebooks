@@ -58,7 +58,7 @@ jobs:
       - name: Set Environment Variables
         shell: bash -l {0}
         run: |
-          echo "OPENMC_CROSS_SECTIONS=$HOME/endfb71_hdf5/cross_sections.xml" >> $GITHUB_ENV
+          echo "OPENMC_CROSS_SECTIONS=$HOME/endfb-vii.1-hdf5/cross_sections.xml" >> $GITHUB_ENV
 
       - name: Execute all Notebooks
         shell: bash -l {0}
