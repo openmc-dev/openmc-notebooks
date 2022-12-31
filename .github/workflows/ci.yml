@@ -38,6 +38,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate jupyter-actions
+          conda update conda-build
           conda install -c conda-forge mamba
           mamba install -c conda-forge openmc
 
