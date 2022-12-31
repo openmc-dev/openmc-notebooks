@@ -33,12 +33,12 @@ jobs:
           activate-environment: jupyter-actions
           environment-file: .github/environment.yml
           python-version: 3.7
+          mamba-version: "*"
 
       - name: Install OpenMC
         shell: bash -l {0}
         run: |
           conda activate jupyter-actions
-          conda install -c conda-forge mamba
           mamba install -c conda-forge openmc
 
       - name: Cache Cross Sections
