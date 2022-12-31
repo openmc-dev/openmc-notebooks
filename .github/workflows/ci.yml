@@ -47,7 +47,7 @@ jobs:
         with:
           # use this cache as long as the download script doesn't change
           key: xs-cache-${{ hashfiles('.test/download-xs.sh') }}
-          path: ~/endfb71_hdf5/*
+          path: ~/endfb-vii.1-hdf5/*
 
       - name: Download OpenMC Cross Sections
         shell: bash -l {0}
