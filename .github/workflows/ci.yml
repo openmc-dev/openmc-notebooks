@@ -33,12 +33,12 @@ jobs:
           activate-environment: jupyter-actions
           environment-file: .github/environment.yml
           python-version: 3.7
+          mamba-version: "*"
 
       - name: Install OpenMC
         shell: bash -l {0}
         run: |
           conda activate jupyter-actions
-          conda install -c conda-forge mamba
           mamba install -c conda-forge openmc
 
       - name: Cache Cross Sections
@@ -47,7 +47,7 @@ jobs:
         with:
           # use this cache as long as the download script doesn't change
           key: xs-cache-${{ hashfiles('.test/download-xs.sh') }}
-          path: ~/endfb71_hdf5/*
+          path: ~/endfb-vii.1-hdf5/*
 
       - name: Download OpenMC Cross Sections
         shell: bash -l {0}
@@ -58,7 +58,7 @@ jobs:
       - name: Set Environment Variables
         shell: bash -l {0}
         run: |
-          echo "OPENMC_CROSS_SECTIONS=$HOME/endfb71_hdf5/cross_sections.xml" >> $GITHUB_ENV
+          echo "OPENMC_CROSS_SECTIONS=$HOME/endfb-vii.1-hdf5/cross_sections.xml" >> $GITHUB_ENV
 
       - name: Execute all Notebooks
         shell: bash -l {0}
