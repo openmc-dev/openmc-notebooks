@@ -8,3 +8,7 @@ dependencies:
   - numpy=1.18
   - requests=2.24.0
   - pytest
+  - vtk
+  - pyevtk
+  - xlwt
+  - swig

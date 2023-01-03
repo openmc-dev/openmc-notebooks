@@ -61,14 +61,6 @@ jobs:
         run: |
           echo "OPENMC_CROSS_SECTIONS=$HOME/endfb-vii.1-hdf5/cross_sections.xml" >> $GITHUB_ENV
 
-      - name: Install Additional Python Dependencies
-        shell: bash -l {0}
-        run: |
-          conda init bash
-          source ~/.bashrc
-          conda activate jupyter-actions
-          pip install vtk pyevtk xlwt swig
-
       - name: Install OpenMOC
         shell: bash -l {0}
         run: |
