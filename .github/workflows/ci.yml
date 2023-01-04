@@ -27,6 +27,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+
       - name: Install conda environment
         uses: conda-incubator/setup-miniconda@v2
         with:
@@ -59,6 +60,20 @@ jobs:
         shell: bash -l {0}
         run: |
           echo "OPENMC_CROSS_SECTIONS=$HOME/endfb-vii.1-hdf5/cross_sections.xml" >> $GITHUB_ENV
+
+      - name: Install OpenMOC
+        shell: bash -l {0}
+        run: |
+          conda init bash
+          source ~/.bashrc
+          conda activate jupyter-actions
+          cd ~
+          git clone https://github.com/mit-crpg/openmoc &&
+          cd openmoc
+          # OpenMOC has some custom commands that rely on setuptools/distutils
+          python setup.py install
+          # install twice to make sure openmoc.py is copied into the installation location
+          python setup.py install
 
       - name: Execute all Notebooks
         shell: bash -l {0}
