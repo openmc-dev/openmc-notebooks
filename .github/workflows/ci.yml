@@ -67,4 +67,5 @@ jobs:
 
       - name: Execute all Notebooks
         run: |
+          pip install pytest
           pytest -v .test
