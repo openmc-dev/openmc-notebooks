@@ -55,8 +55,7 @@ jobs:
         run: |
           echo "OPENMC_CROSS_SECTIONS=$HOME/endfb-vii.1-hdf5/cross_sections.xml" >> $GITHUB_ENV
 
-      - name: Install OpenMOC
-        shell: bash -l {0}
+      - name: Install OpenMOCs
         run: |
           cd ~
           git clone https://github.com/mit-crpg/openmoc &&
@@ -67,6 +66,5 @@ jobs:
           python setup.py install
 
       - name: Execute all Notebooks
-        shell: bash -l {0}
         run: |
           pytest -v .test
