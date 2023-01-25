@@ -68,4 +68,5 @@ jobs:
       - name: Execute all Notebooks
         run: |
           pip install pytest
+          pip install nbformat
           pytest -v .test
