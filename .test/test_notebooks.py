@@ -5,6 +5,7 @@ import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 from nbconvert.preprocessors import CellExecutionError
 import pytest
+import sys
 
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -16,12 +17,14 @@ def process_notebook(notebook_filename, html_directory='notebook-html'):
     writes the notebook to HTML (with outputs) and overwrites the .ipynb file
     (without outputs).
     '''
+    kernel_name = 'python%d' % sys.version_info[0]
 
     with open(notebook_filename) as f:
         nb = nbformat.read(f, as_version=4)
+        nb.metadata.get('kernelspec', {})['name'] = kernel_name
 
     ep = ExecutePreprocessor(timeout=600,
-                             kernel_name='python')
+                             kernel_name=kernel_name)
 
     try:
         # Check that the notebook runs
