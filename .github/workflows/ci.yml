@@ -22,25 +22,16 @@ jobs:
     name: Test Jupyter Notebooks
     # Set the type of machine to run on
     runs-on: ubuntu-latest
+    container:
+      image: continuumio/miniconda3
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-
-      - name: Install conda environment
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: jupyter-actions
-          environment-file: .github/environment.yml
-          python-version: 3.7
-          mamba-version: "*"
+        uses: actions/checkout@v3
 
       - name: Install OpenMC
-        shell: bash -l {0}
         run: |
-          conda activate jupyter-actions
-          mamba install -c conda-forge openmc
+          conda install -c conda-forge -y openmc
 
       - name: Cache Cross Sections
         id: xs-cache
@@ -64,9 +55,6 @@ jobs:
       - name: Install OpenMOC
         shell: bash -l {0}
         run: |
-          conda init bash
-          source ~/.bashrc
-          conda activate jupyter-actions
           cd ~
           git clone https://github.com/mit-crpg/openmoc &&
           cd openmoc
@@ -78,5 +66,4 @@ jobs:
       - name: Execute all Notebooks
         shell: bash -l {0}
         run: |
-          conda activate jupyter-actions
           pytest -v .test
