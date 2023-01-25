@@ -21,7 +21,7 @@ def process_notebook(notebook_filename, html_directory='notebook-html'):
         nb = nbformat.read(f, as_version=4)
 
     ep = ExecutePreprocessor(timeout=600,
-                             kernel_name='python3')
+                             kernel_name='python')
 
     try:
         # Check that the notebook runs
