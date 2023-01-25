@@ -69,4 +69,5 @@ jobs:
         run: |
           pip install pytest
           pip install nbformat
+          pip install nbconvert
           pytest -v .test
