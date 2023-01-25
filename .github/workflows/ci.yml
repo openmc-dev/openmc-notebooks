@@ -45,7 +45,8 @@ jobs:
         shell: bash -l {0}
         if: steps.xs-cache.outputs.cache-hit != 'true'
         run: |
-          ./.test/download-xs.sh
+          wget https://anl.box.com/shared/static/9igk353zpy8fn9ttvtrqgzvw1vtejoz6.xz -O endf7b_xs.tar.xz
+          tar xf endf7b_xs.tar.xz
 
       - name: Set Environment Variables
         shell: bash -l {0}
