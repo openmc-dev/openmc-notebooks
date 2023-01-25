@@ -1,0 +1,82 @@
+name: Test Notebooks
+
+on:
+  # Allow this workflow to be run manually
+  workflow_dispatch:
+  # Run for pull requests
+  pull_request:
+    branches:
+      - main
+  # Run every time a new commit is pushed
+  push:
+    branches:
+      - main
+  # Run every week on Sunday at midnight
+  schedule:
+    - cron: "0 0 * * 1"
+
+jobs:
+  # Set the job key
+  test-notebooks:
+    # Name the job
+    name: Test Jupyter Notebooks
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+
+      - name: Install conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: jupyter-actions
+          environment-file: .github/environment.yml
+          python-version: 3.7
+          mamba-version: "*"
+
+      - name: Install OpenMC
+        shell: bash -l {0}
+        run: |
+          conda activate jupyter-actions
+          mamba install -c conda-forge openmc
+
+      - name: Cache Cross Sections
+        id: xs-cache
+        uses: actions/cache@v3
+        with:
+          # use this cache as long as the download script doesn't change
+          key: xs-cache-${{ hashfiles('.test/download-xs.sh') }}
+          path: ~/endfb-vii.1-hdf5/*
+
+      - name: Download OpenMC Cross Sections
+        shell: bash -l {0}
+        if: steps.xs-cache.outputs.cache-hit != 'true'
+        run: |
+          ./.test/download-xs.sh
+
+      - name: Set Environment Variables
+        shell: bash -l {0}
+        run: |
+          echo "OPENMC_CROSS_SECTIONS=$HOME/endfb-vii.1-hdf5/cross_sections.xml" >> $GITHUB_ENV
+
+      - name: Install OpenMOC
+        shell: bash -l {0}
+        run: |
+          conda init bash
+          source ~/.bashrc
+          conda activate jupyter-actions
+          cd ~
+          git clone https://github.com/mit-crpg/openmoc &&
+          cd openmoc
+          # OpenMOC has some custom commands that rely on setuptools/distutils
+          python setup.py install
+          # install twice to make sure openmoc.py is copied into the installation location
+          python setup.py install
+
+      - name: Execute all Notebooks
+        shell: bash -l {0}
+        run: |
+          conda activate jupyter-actions
+          pytest -v .test

@@ -3,11 +3,17 @@
 
 # Jupyter notebooks
 *.xml
+*.h5
+*.h5m
+*.vtk
 *.png
 *.xls
 *.ace
 *.endf
+*.out
 mgxs/
 tracks/
 fission-rates/
 plots/
+*~
+*__pycache__*
