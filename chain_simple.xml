@@ -13,6 +13,38 @@
   <nuclide name="Gd157" decay_modes="0" reactions="1"  >
     <reaction type="(n,gamma)" Q="0.0" target="Nothing" />
   </nuclide>
+    <nuclide name="Cs137" half_life="949252600.0" decay_modes="2" decay_energy="179447.6443" reactions="6">
+    <decay type="beta-" target="Ba137" branching_ratio="0.05300549"/>
+    <decay type="beta-" target="Ba137_m1" branching_ratio="0.94699451"/>
+    <source type="discrete" particle="photon">
+      <parameters>283500.0 4.235177914969822e-15</parameters>
+    </source>
+    <source type="discrete" particle="electron">
+      <parameters>513971.0 892130.0 1175630.0 6.915023250821416e-10 4.235177914969822e-15 3.870076370575872e-11</parameters>
+    </source>
+    <reaction type="(n,2n)" Q="-8278100.0" target="Cs136"/>
+    <reaction type="(n,3n)" Q="-15047200.0" target="Cs135"/>
+    <reaction type="(n,p)" Q="-3562520.0" target="Xe137"/>
+    <reaction type="(n,a)" Q="3064210.0" target="I134"/>
+    <reaction type="(n,gamma)" Q="4281390.0" target="Cs138" branching_ratio="0.9021"/>
+    <reaction type="(n,gamma)" Q="4281390.0" target="Cs138_m1" branching_ratio="0.0979"/>
+  </nuclide>
+    <nuclide name="Ba137" reactions="5">
+    <reaction type="(n,2n)" Q="-6903090.0" target="Ba136"/>
+    <reaction type="(n,3n)" Q="-16015200.0" target="Ba135"/>
+    <reaction type="(n,gamma)" Q="8611390.0" target="Ba138"/>
+    <reaction type="(n,p)" Q="-390530.0" target="Cs137"/>
+    <reaction type="(n,a)" Q="6046200.0" target="Xe134"/>
+  </nuclide>
+  <nuclide name="Ba137_m1" half_life="153.12" decay_modes="1" decay_energy="661396.64" reactions="0">
+    <decay type="IT" target="Ba137" branching_ratio="1.0"/>
+    <source type="discrete" particle="photon">
+      <parameters>4470.0 31817.0 32194.0 36304.0 36378.0 37255.0 661657.0 4.372683136122041e-05 9.525884763557368e-05 0.00017377297596020668 1.6633087848867745e-05 3.2112650589648466e-05 1.0158463048637348e-05 0.004069614128287558</parameters>
+    </source>
+    <source type="discrete" particle="electron">
+      <parameters>3670.0 26400.0 624216.4 655668.2 660364.2 661404.0 661636.9 0.0003537897992698539 3.7210487357645964e-05 0.00037210482830822686 6.708752100247119e-05 1.4350025269251869e-05 3.08729347663194e-06 4.6173597451093537e-07</parameters>
+    </source>
+  </nuclide>
   <nuclide name="Gd156" decay_modes="0" reactions="1">
     <reaction type="(n,gamma)" Q="0.0" target="Gd157" />
   </nuclide>
