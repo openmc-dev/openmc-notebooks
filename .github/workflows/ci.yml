@@ -31,6 +31,7 @@ jobs:
       - name: Install conda environment
         uses: conda-incubator/setup-miniconda@v2
         with:
+          mamba-version: "*"
           activate-environment: jupyter-actions
           environment-file: .github/environment.yml
           python-version: 3.7
