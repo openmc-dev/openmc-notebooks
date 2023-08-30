@@ -78,4 +78,29 @@
       </fission_yields>
     </neutron_fission_yields>
   </nuclide>
+  <nuclide>  <!-- Target nuclides to allow depletion to run smoothly -->
+    <nuclide name="Cs136" decay_modes="0" reactions="0" />
+  <nuclide>
+    <nuclide name="Cs138" decay_modes="0" reactions="0" />
+  </nuclide>
+  <nuclide>
+    <nuclide name="Cs138_m1" decay_modes="0" reactions="0" />
+  </nuclide>
+  <nuclide>
+    <nuclide name="Ba135" decay_modes="0" reactions="0" />
+  </nuclide>
+  <nuclide>
+    <nuclide name="Ba136" decay_modes="0" reactions="0" />
+  </nuclide>
+  <nuclide>
+    <nuclide name="Ba138" decay_modes="0" reactions="0" />
+  </nuclide>
+  <nuclide>
+    <nuclide name="Xe134" decay_modes="0" reactions="0" />
+  </nuclide>
+  </nuclide>
+    <nuclide name="Xe137" decay_modes="0" reactions="0" />
+  <nuclide>
+    <nuclide name="I134" decay_modes="0" reactions="0" />
+  </nuclide>
 </depletion_chain>
