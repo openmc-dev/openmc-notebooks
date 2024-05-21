@@ -41,7 +41,7 @@ jobs:
           conda install -n base conda-libmamba-solver
           conda config --set solver libmamba
           conda activate jupyter-actions
-          conda install -c conda-forge openmc
+          conda install -c conda-forge openmc==0.14.0
 
       - name: Cache Cross Sections
         id: xs-cache
