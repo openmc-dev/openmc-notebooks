@@ -5,7 +5,7 @@ dependencies:
   - jupyter=1.0
   - nbformat
   - nbconvert
-  - numpy=1.18
+  - numpy
   - requests=2.24.0
   - pytest
   - vtk
