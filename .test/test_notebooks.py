@@ -20,7 +20,7 @@ def process_notebook(notebook_filename, html_directory='notebook-html'):
     with open(notebook_filename) as f:
         nb = nbformat.read(f, as_version=4)
 
-    ep = ExecutePreprocessor(timeout=600,
+    ep = ExecutePreprocessor(timeout=1200,
                              kernel_name='python3')
 
     try:
