@@ -7,7 +7,6 @@ dependencies:
   - nbconvert
   - numpy
   - seaborn
-  - xls
   - requests=2.24.0
   - pytest
   - vtk
