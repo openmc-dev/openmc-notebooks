@@ -33,7 +33,7 @@ jobs:
         with:
           activate-environment: jupyter-actions
           environment-file: .github/environment.yml
-          python-version: 3.7
+          python-version: 3.9
 
       - name: Install OpenMC
         shell: bash -l {0}
