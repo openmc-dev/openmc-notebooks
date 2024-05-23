@@ -43,8 +43,6 @@ def find_notebooks():
     # Get just the notebooks from the git files
     notebooks = [fn for fn in git_files if fn.endswith(".ipynb")]
     # remove the MGXS notebooks that use on OepnMOC for now
-    notebooks.remove('mgxs-part-ii.ipynb')
-    notebooks.remove('mgxs-part-iii.ipynb')
     return notebooks
 
 
