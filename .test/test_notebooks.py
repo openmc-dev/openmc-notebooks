@@ -45,7 +45,7 @@ def find_notebooks():
     # remove the MGXS notebooks that use on OepnMOC for now
     notebooks.remove('mgxs-part-ii.ipynb')
     notebooks.remove('mgxs-part-iii.ipynb')
-    return
+    return notebooks
 
 
 @pytest.mark.parametrize('notebook', find_notebooks())
