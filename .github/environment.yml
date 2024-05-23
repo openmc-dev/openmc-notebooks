@@ -5,11 +5,10 @@ dependencies:
   - jupyter=1.0
   - nbformat
   - nbconvert
-  - numpy
+  - numpy==1.18
   - seaborn
   - requests=2.24.0
   - pytest
   - vtk
   - pyevtk
-  - xlwt
   - swig
