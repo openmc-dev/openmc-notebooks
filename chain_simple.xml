@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <depletion_chain>
+  <nuclide name="Ba135" decay_modes="0" reactions="0" />
+  <nuclide name="Ba136" decay_modes="0" reactions="0" />
+  <nuclide name="Ba138" decay_modes="0" reactions="0" />
+  <nuclide name="I134" decay_modes="0" reactions="0" />
   <nuclide name="I135" decay_modes="1" reactions="1" half_life="2.36520E+04">
     <decay type="beta" target="Xe135" branching_ratio="1.0" />
     <reaction type="(n,gamma)" Q="0.0" target="Xe136" /> <!-- Not precisely true, but whatever -->
@@ -8,9 +12,14 @@
     <decay type=" beta" target="Cs135" branching_ratio="1.0" />
     <reaction type="(n,gamma)" Q="0.0" target="Xe136" />
   </nuclide>
+  <nuclide name="Xe134" decay_modes="0" reactions="0" />
   <nuclide name="Xe136" decay_modes="0" reactions="0" />
+  <nuclide name="Xe137" decay_modes="0" reactions="0" />
   <nuclide name="Cs135" decay_modes="0" reactions="0" />
-  <nuclide name="Gd157" decay_modes="0" reactions="1"  >
+  <nuclide name="Cs136" decay_modes="0" reactions="0" />
+  <nuclide name="Cs138" decay_modes="0" reactions="0" />
+  <nuclide name="Cs138_m1" decay_modes="0" reactions="0" />
+  <nuclide name="Gd157" decay_modes="0" reactions="1">
     <reaction type="(n,gamma)" Q="0.0" target="Nothing" />
   </nuclide>
     <nuclide name="Cs137" half_life="949252600.0" decay_modes="2" decay_energy="179447.6443" reactions="6">

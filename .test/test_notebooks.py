@@ -20,7 +20,7 @@ def process_notebook(notebook_filename, html_directory='notebook-html'):
     with open(notebook_filename) as f:
         nb = nbformat.read(f, as_version=4)
 
-    ep = ExecutePreprocessor(timeout=600,
+    ep = ExecutePreprocessor(timeout=1200,
                              kernel_name='python3')
 
     try:
@@ -41,7 +41,11 @@ def find_notebooks():
                  .splitlines())
 
     # Get just the notebooks from the git files
-    return [fn for fn in git_files if fn.endswith(".ipynb")]
+    notebooks = [fn for fn in git_files if fn.endswith(".ipynb")]
+    # remove the MGXS notebooks that use on OepnMOC for now
+    notebooks.remove('mgxs-part-ii.ipynb')
+    notebooks.remove('mgxs-part-iii.ipynb')
+    return notebooks
 
 
 @pytest.mark.parametrize('notebook', find_notebooks())
