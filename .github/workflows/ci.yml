@@ -69,7 +69,7 @@ jobs:
           source ~/.bashrc
           conda activate jupyter-actions
           cd ~
-          git clone https://github.com/mit-crpg/openmoc &&
+          git clone https://github.com/pshriwise/openmoc -b numpy-2.0 &&
           cd openmoc
           # OpenMOC has some custom commands that rely on setuptools/distutils
           python setup.py install
