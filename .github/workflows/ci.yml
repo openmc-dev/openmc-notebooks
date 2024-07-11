@@ -7,10 +7,12 @@ on:
   pull_request:
     branches:
       - main
+      - develop
   # Run every time a new commit is pushed
   push:
     branches:
       - main
+      - develop
   # Run every week on Sunday at midnight
   schedule:
     - cron: "0 0 * * 1"
