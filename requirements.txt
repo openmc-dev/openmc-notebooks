@@ -1,7 +1,0 @@
-openmc
-numpy
-matplotlib
-h5py
-jupyterlab
-# Note: prefer installing OpenMC from conda-forge for full functionality:
-# conda install -c conda-forge openmc
